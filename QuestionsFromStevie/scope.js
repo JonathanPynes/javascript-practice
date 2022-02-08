@@ -1,4 +1,4 @@
-// Scope refers to access of variables. Javascript has function scope.  
+// Scope refers to access of variables. Javascript has function scope and block scope.
 // const and let provide Block Scope, meaning when these variables are declared in a {block} they cannot be accessed outside the {block}.
 
 // Local variables have Function Scope. They are created when the function starts and deleted when the function completes.
@@ -8,7 +8,7 @@ function localScope() {
     let localVariable = "Local Variable";
     console.log(localVariable);
     // Can be accessed here
-};
+}
 // Throws an error
 console.log(localVariable);
 
@@ -18,7 +18,7 @@ console.log(localVariable);
 const globalVariable = "Global Variable";
 
 // If you assign a value to variable that has not been declared, it automatically becomes a global variable. In "Strict Mode", undeclared variables are not automatically global.
-// Automatic global variable: 
+// Automatic global variable:
 
 automaticGlobalVariable();
 
@@ -26,9 +26,24 @@ function automaticGlobalVariable() {
     AGvariable = "Automatic Global Variable";
 }
 // Will work here.
-console.log(AGvariable)
+console.log(AGvariable);
 
 // Function scope & Block scope
+
+const reverseString = (string) => {
+    // Function scope
+    let results = [];
+    // Function scope
+    let stringArray = string.split(" ");
+    // Block scope
+    for (i = 0; i < stringArray.length; i++) {
+        let newStringArray = stringArray[i];
+        results.unshift(newStringArray);
+    }
+    // Function scope
+    return results.join(" ");
+};
+
 // From stackOverflow https://stackoverflow.com/questions/21772317/difference-between-function-level-scope-and-block-level-scope
 
 // {
