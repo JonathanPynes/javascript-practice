@@ -29,21 +29,21 @@ function automaticGlobalVariable() {
 console.log(AGvariable)
 
 // Function scope & Block scope
+// From stackOverflow https://stackoverflow.com/questions/21772317/difference-between-function-level-scope-and-block-level-scope
 
-function scopes() {
-    let a = 0;
-    {
-        let b = 1;
-        console.log("a", a)
-        console.log("b", b)
-        {
-            let c = 2;
-            console.log("a", a)
-            console.log("b", b)
-            console.log("c", c)
-        }
-    }
-    console.log("a", a)
-    console.log("b", b)
-    console.log("c", c)
-}
+// {
+//     here you can't access both a and b
+//     var a=1
+//     here you can access only a
+//        {
+//        here you can access only a
+//        var b=3
+//        here you can access both a and b
+//        {
+//        here you can access both a and b
+//        }
+//        here too you can access both a and b
+//        }
+//        here you can access only a
+//        }
+//       here you can't access both a and b
